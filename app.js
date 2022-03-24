@@ -27,7 +27,7 @@ const foodRoutes=require('./api/foodRoutes');
 //cross origin resource sharing
 app.use(cors(
     {
-        origin:['http://localhost:3000'],
+        origin:['http://localhost:3000','https://boisterous-jelly-cc7fa6.netlify.app'],
         credentials:true
     }
 ))
