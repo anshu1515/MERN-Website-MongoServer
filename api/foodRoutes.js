@@ -7,7 +7,7 @@ const Order=require('../models/order');
 //for fetching all the food items
 router.get('/allfoods',async(req,res)=>{
     try{
-        const allfoods=Food.find({});
+        const allfoods=await Food.find({});
         res.status(200).json(allfoods)
     }
     catch(err){
@@ -20,7 +20,9 @@ router.get('/allfoods',async(req,res)=>{
 router.post('/placeorder',async(req,res)=>{
     try{
         const { cart: orderedItems } = req.body;
+        // console.log(orderedItems);
         const newOrder = new Order({ orderedItems });
+        // console.log(req.body)
        
         await newOrder.save()
         
