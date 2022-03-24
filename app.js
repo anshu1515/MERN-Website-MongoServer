@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URL)
     console.log(err);
 })
 
-seedDB();
+// seedDB();
 
 app.use(express.json());
 
@@ -22,7 +22,7 @@ const foodRoutes=require('./api/foodRoutes');
 //cross origin resource sharing
 app.use(cors(
     {
-        origin:['http://localhost:3000','https://rad-meerkat-bdbd6a.netlify.app'],
+        origin:['http://localhost:3000','https://eloquent-arithmetic-8bea62.netlify.app'],
         credentials:true
     }
 ))
