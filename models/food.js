@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 
 //creating food schema 
-const foodSchema=mongoose.Schema({
+const foodSchema=new mongoose.Schema({
     name:{
         type:String,
         trim:true
@@ -17,5 +17,5 @@ const foodSchema=mongoose.Schema({
 })
 
 //formation of model 
-const Food=mongoose.model('Food',foodSchema)
+const Food = mongoose.model('Food',foodSchema)
 module.exports=Food;

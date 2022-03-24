@@ -1,4 +1,4 @@
-
+const mongoose=require('mongoose');
 const Food=require('./models/food')
 
 const Dummy_foods = [
@@ -29,10 +29,12 @@ const Dummy_foods = [
     },
 ]
 
-const seedDB=async()=>{
+const seedDB = async() => {
     await Food.deleteMany({});
-    await Food.insertMany(Dummy_foods)
-    console.log('DB Seeded')
+
+    await Food.insertMany(Dummy_foods);
+
+    console.log('DB Seeded');
 
 }
 

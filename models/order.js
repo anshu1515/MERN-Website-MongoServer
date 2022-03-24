@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 
 //order schema structure is here
-const orderSchema=mongoose.Schema({
+const orderSchema=new mongoose.Schema({
     orderedItems: [
         {
             _id: { id: false },

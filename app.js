@@ -3,7 +3,7 @@ const app=express();
 const mongoose=require('mongoose');
 const seedDB=require('./seed');
 const cors=require('cors');
-
+require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
@@ -13,18 +13,16 @@ mongoose.connect(process.env.MONGO_URL)
     console.log(err);
 })
 
-// seedDB();
+seedDB();
 
 app.use(express.json());
 
 const foodRoutes=require('./api/foodRoutes');
-app.use(foodRoutes);
-
 
 //cross origin resource sharing
 app.use(cors(
     {
-        origin:['http://localhost:3000'],
+        origin:['http://localhost:3000','https://rad-meerkat-bdbd6a.netlify.app'],
         credentials:true
     }
 ))
@@ -35,6 +33,7 @@ app.get('/foodapp',(req,res)=>{
     res.status(200).json({msg:'Welcome to Online Food Ordering Website && Hello from the Server Side'});
 })
 
+app.use(foodRoutes);
 
 const port=process.env.PORT || 8000;
 app.listen(port,()=>{
