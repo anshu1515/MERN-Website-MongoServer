@@ -9,8 +9,8 @@ const seedDB=require('./seed');
 const cors=require('cors');
 
 
-// mongoose.connect(process.env.MONGO_URL)
-mongoose.connect('mongodb://localhost:27017/food-app')
+mongoose.connect(process.env.MONGO_URL)
+// mongoose.connect('mongodb://localhost:27017/food-app')
 .then(()=>{
     console.log('DB Connected')
 })
